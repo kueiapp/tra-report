@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <head>
+        <!-- Google Analytics-->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-56583903-3', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="description" content="Free TRA delay report system 台鐵誤點回報系統">
+        <meta name="keywords" content="TRA,Taiwan Rail,Delay, 台鐵, 誤點, Kuei App">
+        <meta name="author" content="Kuei">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.form.min.js"></script>
+        <script src="js/myFunc.js"></script>
+        <link type="text/css" rel=stylesheet href="css/bootstrap.min.css">
+        <title>台鐵誤點回報系統</title>
+    </head>
+    <body>
+		<div class="navbar navbar-default">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="index.html">台鐵誤點回報系統</a>
+			</div>
+		  </div>
+		<div class="container">
+			<div id="demo" class="well well-sm"></div>
+			<form id="form1" method="POST" action="db/db_mobile.php" class="form-horizontal well-sm">
+				<input type="hidden" name="act" value="sendDelay" />
+				<div class="form-group">
+					<label for="trainid" class="control-label hidden">班次</label>
+					<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+						<input name="trainid" placeholder="班次 Train Number" value="" type="text" class="form-control" required />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="delay" class="control-label hidden">誤點分鐘</label>
+					<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+						<input name="delay" placeholder="誤點分鐘 Delay in Minute" value="" type="text" class="form-control" required >
+					</div>
+				</div>
+				<div class="form-group"><!--ui-hidden-accessible-->
+					<label for="station" class="control-label">所在車站</label>
+					<select id="station" name="stationid" class="form-control" required ></select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary form-control" type="submit">送出</button>
+				</div>
+			</form>
+			<div id="result" class="well"></div>
+			<div role="contentinfo" data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+				<p>&copy; <a href="../index.html" target="_blank">Kuei, Lifelabtw</a> 2014</p>
+                <p><a href="https://github.com/Kuei-lifelabtw/tra-delay.git">Forks me on Github</a></p>
+                <p>HTML 5 supported</p>
+				<p>Published in GPLv2 License</p>
+			</div>
+		</div>
+
+    </body>
+</html>
